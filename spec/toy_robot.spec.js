@@ -14,5 +14,13 @@ describe('ToyRobot', () => {
       robot.place(1, 3, 'WEST');
       expect(robot.report()).toEqual('1,3,WEST');
     });
+
+    it('will ignore invalid coordinates', () => {
+      robot.place(10, 10, 'WEST');
+      expect(robot.report()).toBeFalsy();
+
+      robot.place(0, 4, 'bleh');
+      expect(robot.report()).toBeFalsy();
+    });
   })
 });
