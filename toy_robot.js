@@ -46,4 +46,30 @@ ToyRobot.prototype.report = function() {
   }
 }
 
+// Move one tile forward in current direction
+ToyRobot.prototype.move = function() {
+  switch (this.direction) {
+    case 'NORTH':
+      if (this.y < this.height - 1) {
+        this.y++;
+      }
+      break;
+    case 'SOUTH':
+      if (this.y > 0) {
+        this.y--;
+      }
+      break;
+    case 'EAST':
+      if (this.x < this.width - 1) {
+        this.x++;
+      }
+      break;
+    case 'WEST':
+      if (this.x > 0) {
+        this.x--;
+      }
+      break;
+  }
+}
+
 module.exports = ToyRobot;
