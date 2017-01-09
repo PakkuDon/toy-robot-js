@@ -1,5 +1,5 @@
 describe('ToyRobot', () => {
-  var ToyRobot = require('../toy_robot.js');
+  var ToyRobot = require('../toy_robot');
   var robot;
   var width = 5;
   var height = 5;
