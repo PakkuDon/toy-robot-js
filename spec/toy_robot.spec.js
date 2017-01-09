@@ -51,6 +51,33 @@ describe('ToyRobot', () => {
       robot.move();
       robot.move();
       expect(robot.report()).toEqual('4,4,NORTH');
-    })
+    });
+  });
+
+  describe('rotation', () => {
+    describe('left', () => {
+      it('should turn the robot counter-clockwise', () => {
+        robot.place(0, 0, 'NORTH');
+        robot.left();
+        expect(robot.report()).toEqual('0,0,WEST');
+
+        robot.left();
+        expect(robot.report()).toEqual('0,0,SOUTH');
+
+        robot.left();
+        expect(robot.report()).toEqual('0,0,EAST');
+
+        robot.left();
+        expect(robot.report()).toEqual('0,0,NORTH');
+      });
+    });
+
+    describe('right', () => {
+      it('should turn the robot clockwise', () => {
+        robot.place(0, 0, 'SOUTH');
+        robot.right();
+        expect(robot.report()).toEqual('0,0,WEST');
+      });
+    });
   });
 });

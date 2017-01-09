@@ -7,8 +7,8 @@ var ToyRobot = function(width, height) {
 // Helpers
 const directions = [
   'NORTH',
-  'SOUTH',
   'EAST',
+  'SOUTH',
   'WEST'
 ];
 
@@ -47,6 +47,7 @@ ToyRobot.prototype.report = function() {
 }
 
 // Move one tile forward in current direction
+// Ignore moves that will cause robot to fall
 ToyRobot.prototype.move = function() {
   switch (this.direction) {
     case 'NORTH':
@@ -70,6 +71,21 @@ ToyRobot.prototype.move = function() {
       }
       break;
   }
+}
+
+// Turn robot counter-clockwise
+ToyRobot.prototype.left = function() {
+  var index = directions.indexOf(this.direction) - 1;
+  if (index < 0) {
+    index = directions.length - 1;
+  }
+  this.direction = directions[index];
+}
+
+// Turn robot clockwise
+ToyRobot.prototype.right = function() {
+  var index = (directions.indexOf(this.direction) + 1) % directions.length;
+  this.direction = directions[index];
 }
 
 module.exports = ToyRobot;
