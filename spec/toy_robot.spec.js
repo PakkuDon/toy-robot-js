@@ -27,6 +27,11 @@ describe('ToyRobot', () => {
   });
 
   describe('move', () => {
+    it('will ignore moves if it has not been placed', () => {
+      robot.move();
+      expect(robot.report()).toBeFalsy();
+    });
+
     it('will move in its current direction', () => {
       robot.place(0, 0, 'NORTH');
       robot.move();

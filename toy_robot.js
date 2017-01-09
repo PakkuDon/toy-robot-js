@@ -49,6 +49,10 @@ ToyRobot.prototype.report = function() {
 // Move one tile forward in current direction
 // Ignore moves that will cause robot to fall
 ToyRobot.prototype.move = function() {
+  if (!this.isPlaced()) {
+    return;
+  }
+
   switch (this.direction) {
     case 'NORTH':
       if (this.y < this.height - 1) {
